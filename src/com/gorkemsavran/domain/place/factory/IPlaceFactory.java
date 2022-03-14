@@ -2,6 +2,9 @@ package com.gorkemsavran.domain.place.factory;
 
 import com.gorkemsavran.domain.Player;
 import com.gorkemsavran.domain.place.battle.BattlePlace;
+import com.gorkemsavran.domain.place.battle.Cave;
+import com.gorkemsavran.domain.place.battle.Forest;
+import com.gorkemsavran.domain.place.battle.River;
 import com.gorkemsavran.domain.place.gamescreen.BattleChoose;
 import com.gorkemsavran.domain.place.gamescreen.Lobby;
 import com.gorkemsavran.domain.place.gamescreen.SelectCharacter;
@@ -19,9 +22,9 @@ public interface IPlaceFactory {
 
     Store createStore();
 
-    BattlePlace createCave();
+    Cave createCave();
 
-    BattlePlace createForest();
+    Forest createForest();
 
-    BattlePlace createRiver();
+    River createRiver();
 }

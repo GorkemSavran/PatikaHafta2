@@ -4,38 +4,27 @@ import com.gorkemsavran.domain.Player;
 import com.gorkemsavran.domain.character.playercharacter.characters.Archer;
 import com.gorkemsavran.domain.character.playercharacter.characters.Knight;
 import com.gorkemsavran.domain.character.playercharacter.characters.Samurai;
-import com.gorkemsavran.domain.place.IPlace;
+import com.gorkemsavran.domain.place.AbstractPlace;
+import com.gorkemsavran.domain.place.option.OnlyMessageOption;
+import com.gorkemsavran.domain.place.option.Option;
 
-public class SelectCharacter implements IPlace {
+public class SelectCharacter extends AbstractPlace {
 
-    private Player player;
+    private Player selectedPlayer;
+    private String characterName;
 
     public Player getPlayer() {
-        return player;
+        return selectedPlayer;
     }
 
     @Override
-    public void onPlace() {
-        System.out.print("Karakterine bir isim ver: ");
-        String playerName = scanner.next();
-        System.out.println("Bir karakter seç");
-        System.out.println("1-Samuray");
-        System.out.println("2-Okçu");
-        System.out.println("3-Şovalye");
-        int choice = scanner.nextInt();
-        switch (choice) {
-            case 1:
-                player = new Player(playerName, new Samurai());
-                break;
-            case 2:
-                player = new Player(playerName, new Archer());
-                break;
-            case 3:
-                player = new Player(playerName, new Knight());
-                break;
-            default:
-                System.out.println("Lütfen geçerli bir seçim yapın!");
-                break;
-        }
+    protected void prepareOptions() {
+        System.out.println("Karakterine bir isim ver: ");
+        characterName = scanner.next();
+        addOption(new OnlyMessageOption("Bir karakter seç"));
+        addOption(new Option(0, "Oyundan çık", () -> System.exit(0)));
+        addOption(new Option(1, "Samuray", () -> selectedPlayer = new Player(characterName, new Samurai())));
+        addOption(new Option(2, "Archer", () -> selectedPlayer = new Player(characterName, new Archer())));
+        addOption(new Option(3, "Knight", () -> selectedPlayer = new Player(characterName, new Knight())));
     }
 }

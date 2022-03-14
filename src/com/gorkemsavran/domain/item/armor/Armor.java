@@ -14,4 +14,11 @@ public abstract class Armor extends Item {
     public int getDefence() {
         return defence;
     }
+
+    @Override
+    public String toString() {
+        return "Armor{" +
+                "defence=" + defence +
+                '}';
+    }
 }

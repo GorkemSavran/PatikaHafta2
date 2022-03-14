@@ -39,17 +39,17 @@ public class PlaceFactory implements IPlaceFactory {
     }
 
     @Override
-    public BattlePlace createCave() {
+    public Cave createCave() {
         return new Cave();
     }
 
     @Override
-    public BattlePlace createForest() {
+    public Forest createForest() {
         return new Forest();
     }
 
     @Override
-    public BattlePlace createRiver() {
+    public River createRiver() {
         return new River();
     }
 }

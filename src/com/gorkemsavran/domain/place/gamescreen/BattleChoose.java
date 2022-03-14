@@ -1,31 +1,17 @@
 package com.gorkemsavran.domain.place.gamescreen;
 
-import com.gorkemsavran.domain.place.IPlace;
+import com.gorkemsavran.domain.Player;
+import com.gorkemsavran.domain.place.AbstractPlace;
+import com.gorkemsavran.domain.place.option.Option;
 
-public class BattleChoose implements IPlace {
+public class BattleChoose extends AbstractPlace {
 
     @Override
-    public void onPlace() {
-        System.out.println("0-Geri git");
-        System.out.println("1-Mağaraya git");
-        System.out.println("2-Ormana git");
-        System.out.println("3-Nehire git");
-        int choice = scanner.nextInt();
-        switch (choice) {
-            case 0:
-                break;
-            case 1:
-                placeFactory.createCave().onPlace();
-                break;
-            case 2:
-                placeFactory.createForest().onPlace();
-                break;
-            case 3:
-                placeFactory.createRiver().onPlace();
-                break;
-            default:
-                System.out.println("Lütfen geçerli bir seçim yapın!");
-                break;
-        }
+    protected void prepareOptions() {
+        addOption(new Option(0, "Geri git", () -> {
+        }));
+        addOption(new Option(1, "Mağaraya git", () -> placeFactory.createCave().onPlace()));
+        addOption(new Option(2, "Ormana git", () -> placeFactory.createForest().onPlace()));
+        addOption(new Option(3, "Nehire git", () -> placeFactory.createRiver().onPlace()));
     }
 }

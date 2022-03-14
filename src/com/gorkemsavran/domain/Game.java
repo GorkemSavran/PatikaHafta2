@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Game {
 
-    private Player player;
+    private static Player player;
     private boolean isGameRunning;
     private IPlaceFactory placeFactory;
 
@@ -49,5 +49,9 @@ public class Game {
                 System.out.println(gameException.getMessage());
             }
         }
+    }
+
+    public static Player getPlayer() {
+        return player;
     }
 }

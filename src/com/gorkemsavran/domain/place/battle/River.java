@@ -1,8 +1,6 @@
 package com.gorkemsavran.domain.place.battle;
 
 import com.gorkemsavran.domain.character.enemycharacter.characters.Bear;
-import com.gorkemsavran.domain.character.enemycharacter.characters.Vampire;
-import com.gorkemsavran.domain.item.general.Firewood;
 import com.gorkemsavran.domain.item.general.Water;
 
 public class River extends BattlePlace {

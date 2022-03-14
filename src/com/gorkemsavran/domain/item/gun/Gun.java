@@ -14,4 +14,11 @@ public abstract class Gun extends Item {
     public int getDamage() {
         return damage;
     }
+
+    @Override
+    public String toString() {
+        return "Gun{" +
+                "damage=" + damage +
+                '}';
+    }
 }
