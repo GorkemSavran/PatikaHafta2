@@ -30,6 +30,10 @@ public abstract class BattlePlace implements IPlace {
 
     @Override
     public void onPlace() {
+        System.out.println("Sıradaki düşmanlar: " + enemies.toString());
+        System.out.println("0-Kaç");
+        System.out.println("1-Savaş");
+        System.out.println("2-Ödülü topla");
 
     }
 }
